@@ -142,6 +142,18 @@
   .plan li{display:flex; gap:10px; align-items:flex-start; font-size:15.5px; color:var(--cream); opacity:.92}
   .plan li::before{content:"✓"; color:var(--green); font-weight:900; flex:0 0 auto}
 
+  /* ---------- MONEY arbitrage ---------- */
+  .arb{display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:14px; align-items:stretch; max-width:940px; margin:0 auto}
+  .arb-cell{background:linear-gradient(180deg,var(--panel),var(--ink-2)); border:1px solid var(--line); border-radius:var(--r); padding:26px 18px; text-align:center}
+  .arb-cell.hot{border-color:var(--gold); box-shadow:0 0 0 1px var(--gold-deep), 0 24px 60px -28px rgba(227,191,99,.5)}
+  .arb-cell .k{color:var(--muted); font-size:14px; font-weight:700}
+  .arb-cell .v{font-family:"Heebo",sans-serif; font-weight:900; font-size:clamp(24px,3.6vw,36px); margin:8px 0 4px; color:var(--gold)}
+  .arb-cell.hot .v{color:var(--gold-soft)}
+  .arb-cell .s{color:var(--muted); font-size:13px}
+  .arb-op{display:flex; align-items:center; justify-content:center; font-size:30px; color:var(--gold-deep); font-weight:900; font-family:"Heebo",sans-serif}
+  .money-line{text-align:center; max-width:800px; margin:30px auto 0; font-size:19px; color:var(--cream)}
+  .honest{text-align:center; max-width:780px; margin:30px auto 0; color:var(--muted); font-size:15px; background:var(--ink-2); border:1px solid var(--line); border-radius:var(--rs); padding:16px 20px}
+
   /* ---------- generic table card ---------- */
   .card{background:var(--panel); border:1px solid var(--line); border-radius:var(--r); overflow:hidden}
   table{width:100%; border-collapse:collapse}
@@ -192,6 +204,7 @@
 
   @media(max-width:880px){
     .prob-grid,.pillars,.uc-grid,.price-grid,.gtm-cards,.stats{grid-template-columns:1fr}
+    .arb{grid-template-columns:1fr} .arb-op{transform:rotate(90deg)}
     .stats{grid-template-columns:repeat(2,1fr)}
     .plan.hot{transform:none}
     .chart{grid-template-columns:repeat(12,1fr); height:180px; gap:4px; padding:16px 8px 0}
@@ -210,6 +223,7 @@
   <div class="wrap nav-in">
     <div class="brand"><span class="dot"></span>Hermes × OpenClaw</div>
     <div class="nav-links">
+      <a href="#money">כך מרוויחים</a>
       <a href="#value">מה זה נותן</a>
       <a href="#problem">הבעיה</a>
       <a href="#solution">הפתרון</a>
@@ -244,6 +258,36 @@
     </div>
   </div>
 </header>
+
+<!-- MONEY: how you make money -->
+<section id="money" style="padding-top:48px">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">כך מרוויחים</span>
+      <h2>משכירים &quot;עובדי AI&quot;. גוזרים את המרווח.</h2>
+      <p class="sec-sub">העסקה פשוטה: סוכן עולה לכם <b class="green">₪200–600</b> לחודש להפעלה. עסק משלם על התוצאה <b class="gold">₪490–3,900</b> לחודש. אתם שומרים <b class="gold">~76%</b>.</p>
+    </div>
+
+    <div class="arb reveal d1">
+      <div class="arb-cell"><div class="k">עלות הפעלה</div><div class="v green">₪200–600</div><div class="s">סנדבוקס + מודל לחודש</div></div>
+      <div class="arb-op">←</div>
+      <div class="arb-cell"><div class="k">מחיר ללקוח</div><div class="v gold">₪490–3,900</div><div class="s">מנוי חודשי חוזר</div></div>
+      <div class="arb-op">=</div>
+      <div class="arb-cell hot"><div class="k">המרווח שלכם</div><div class="v">~76%</div><div class="s">רווח גולמי על כל לקוח</div></div>
+    </div>
+
+    <p class="money-line reveal d2">כל לקוח הוא הכנסה חוזרת. מצרפים <b>71 לקוחות</b> ← <b class="gold">₪87K לחודש</b> ← <b class="gold">קצב של ~מיליון ₪ בשנה</b>. מייסד אחד, בלי עובדים, סנדבוקסים שגדלים לפי דרישה.</p>
+
+    <div class="pillars" style="margin-top:34px">
+      <div class="pillar reveal d1"><div class="ic">🔁</div><h3>הכנסה חוזרת</h3><p>כל מכירה היא מנוי חודשי (MRR), לא עסקה חד-פעמית. זה מצטבר חודש אחרי חודש.</p></div>
+      <div class="pillar reveal d2"><div class="ic">🪜</div><h3>נחיתה והרחבה</h3><p>מתחילים מכאב אחד (רדיפת חשבוניות) ב-₪490, ומשדרגים את אותו לקוח עד Pro ב-₪3,900.</p></div>
+      <div class="pillar reveal d3"><div class="ic">🌀</div><h3>גלגל הפניות</h3><p>עסקים מרוצים מפנים עסקים → עלות הגיוס יורדת → המרווח עולה. הצמיחה מממנת את עצמה.</p></div>
+    </div>
+
+    <p class="honest reveal d2">⚖️ בכנות: זו תוכנית, לא לוטו. ההכנסה המוכרת בשנה הראשונה היא ~₪430–500K; המיליון המלא הוא מספר של שנה 2. נדרשים מאמץ וביצוע.</p>
+    <div style="text-align:center; margin-top:30px" class="reveal d3"><a href="#pricing" class="btn btn-primary">ראו את המספרים והחבילות ←</a></div>
+  </div>
+</section>
 
 <!-- VALUE: what it brings -->
 <section id="value" style="padding-top:40px">
@@ -289,7 +333,7 @@
       <p class="sec-sub">לכל לקוח אנחנו מקימים סביבה מבודדת ומוקשחת אחת (סנדבוקס) שבתוכה רץ סוכן AI שמפעיל את הכלים האמיתיים של העסק דרך הדפדפן — בדיוק כמו עובד אנושי, רק שהוא לא ישן. המוח הוא <b class="gold">Hermes</b> (מודל שפה בקוד פתוח), והידיים הן <b class="gold">OpenClaw</b> — שכבת מחשב-בפעולה שמקלידה, לוחצת ונכנסת למערכות. מוכרים תוצאה: &quot;אנחנו מפעילים לכם את גב-המשרד&quot;. בלי להחליף אף כלי שאתם כבר עובדים איתו.</p>
     </div>
     <div class="pillars">
-      <div class="pillar reveal d1"><div class="ic">🧠</div><h3>Hermes — המוח</h3><p>מודל שפה בקוד פתוח שמתכנן, מחליט ומפעיל כלים. ניתן לאירוח עצמי על תשתית שבשליטתנו, כך שהנתונים שלכם נשארים אצלנו ולא מנותבים אוטומטית לספק חיצוני — יתרון פרטיות ותושבות-נתונים אמיתי.</p></div>
+      <div class="pillar reveal d1"><div class="ic">🧠</div><h3>Hermes — המוח</h3><p>מודל שפה שמתכנן, מחליט ומפעיל כלים. רץ דרך <b class="gold">OpenRouter</b> — שער מאוחד לכל המודלים, שמאפשר לבחור פר-משימה את המודל הזול ביותר שעומד באיכות. לנתונים רגישים: נקודות קצה ללא שמירת מידע (ZDR) או אירוח עצמי.</p></div>
       <div class="pillar reveal d2"><div class="ic">🦾</div><h3>OpenClaw — הידיים</h3><p>שכבת מחשב-בפעולה שמפעילה דפדפן, טרמינל ואפליקציות בדיוק כמו אדם. ככה הסוכן מכסה גם פורטלים ישראליים שאין להם API — חשבונית ירוקה, בנקים, מע&quot;מ.</p></div>
       <div class="pillar reveal d3"><div class="ic">🔒</div><h3>סביבה מבודדת ללקוח</h3><p>סנדבוקס מוקשח אחד לכל לקוח — אף פעם לא משותף. כספת אישורים, פרופיל דפדפן ומערכת קבצים נפרדים. זה גבול האמון והאבטחה — ונקודת המכירה החזקה ביותר.</p></div>
       <div class="pillar reveal d4"><div class="ic">✅</div><h3>אישור אנושי בלחיצה</h3><p>כל פעולה בלתי-הפיכה — תשלום, הגשת מס, הודעה יוצאת, חתימה — נעצרת ומחכה לאישור שלכם בוואטסאפ. פעולות הפיכות רצות לבד. הכול נרשם ביומן ביקורת מלא.</p></div>
@@ -339,7 +383,7 @@
     <div class="steps reveal d1">
       <div class="step"><div class="n">01</div><div><h3>אורקסטרטור — מרכז הבקרה</h3><p>מקבל משימות, מנתב, מתזמן ומנהל מצב. מקים סביבות ללקוחות ומשעה אותן כשהן בטלות כדי לחסוך בעלות. רץ על תשתית קטנה תמידית (Fly.io / Modal) ואוכף מדיניות.</p></div></div>
       <div class="step"><div class="n">02</div><div><h3>סביבה מבודדת לכל לקוח</h3><p>מכונה מוקשחת אחת לכל לקוח על E2B או Daytona — לא מחייבת כלום בזמן השעיה. כספת אישורים, פרופיל דפדפן וקבצים נפרדים. זה גבול האמון, וגם נקודת המכירה.</p></div></div>
-      <div class="step"><div class="n">03</div><div><h3>הסוכן שבתוך הסביבה</h3><p>Hermes כמוח שמתכנן ומפעיל כלים, ו-OpenClaw כידיים שמפעילות דפדפן וטרמינל. בבעיות הקשות ביותר יש הסלמה היברידית למודל חזית מתקדם — רק כשצריך.</p></div></div>
+      <div class="step"><div class="n">03</div><div><h3>הסוכן שבתוך הסביבה</h3><p>Hermes כמוח שמתכנן ומפעיל כלים, ו-OpenClaw כידיים שמפעילות דפדפן וטרמינל. כל קריאות המודל עוברות דרך <b class="gold">OpenRouter</b>: מודל פתוח זול לרוב המשימות, והסלמה אוטומטית למודל חזית (Claude/GPT) רק לצעדים הקשים.</p></div></div>
       <div class="step"><div class="n">04</div><div><h3>פיקוח אנושי בשתי רמות</h3><p>פעולות הפיכות וקריאה-בלבד (טיוטות, סיכומי תיבה, סיווג) רצות לבד. פעולות בלתי-הפיכות (תשלומים, הגשות מס, הודעות יוצאות) דורשות אישור בלחיצה בוואטסאפ. צעדים שצברו אמון מתקדמים לאישור אוטומטי.</p></div></div>
       <div class="step"><div class="n">05</div><div><h3>אינטגרציות בשלושה אשכולות</h3><p>(א) וואטסאפ — ערוץ העסקים המוביל בישראל וגם משטח האישור שלכם; (ב) מייל ו-Google Workspace; (ג) כלים ישראליים — חשבונית ירוקה/iCount, בנקים, מע&quot;מ וביטוח לאומי. כי הסוכן מפעיל דפדפן, הוא מכסה גם פורטלים בלי API.</p></div></div>
     </div>
@@ -431,9 +475,9 @@
       <table>
         <thead><tr><th>רכיב עלות (COGS)</th><th>עלות חודשית</th><th>הערה</th></tr></thead>
         <tbody>
-          <tr><td>עלות חבילת Starter ללקוח</td><td class="cost">~₪200</td><td>סנדבוקס משותף מושעה בבטלה (~₪26) + מודל זול (~20M טוקנים ~₪148). תקרות קשיחות שומרות רווח ~59%.</td></tr>
-          <tr><td>עלות חבילת Growth ללקוח</td><td class="cost">~₪350</td><td>סנדבוקס ייעודי 8ש'/יום (~₪96) + מודל ביניים עם prompt caching, מוגבל. מעטפת יעד ~₪350 לרווח 77%.</td></tr>
-          <tr><td>עלות חבילת Pro ללקוח</td><td class="cost">~₪600</td><td>סנדבוקס מבודד כמעט 24/7 + תקציב טוקנים גבוה + פרוקסי תושבי + ניטור. עדיין 85% רווח במחיר ₪3,900.</td></tr>
+          <tr><td>עלות חבילת Starter ללקוח</td><td class="cost">~₪200</td><td>סנדבוקס משותף מושעה בבטלה (~₪26) + מודל פתוח זול דרך OpenRouter (~20M טוקנים ~₪148). תקרות קשיחות שומרות רווח ~59%.</td></tr>
+          <tr><td>עלות חבילת Growth ללקוח</td><td class="cost">~₪350</td><td>סנדבוקס ייעודי 8ש'/יום (~₪96) + מודל ביניים ב-OpenRouter עם prompt caching, מוגבל. מעטפת יעד ~₪350 לרווח 77%.</td></tr>
+          <tr><td>עלות חבילת Pro ללקוח</td><td class="cost">~₪600</td><td>סנדבוקס מבודד כמעט 24/7 + תקציב טוקנים גבוה (מודלי חזית ב-OpenRouter לפי דרישה) + פרוקסי תושבי + ניטור. עדיין 85% רווח במחיר ₪3,900.</td></tr>
           <tr class="total"><td>סך עלות יציבה ב-71 לקוחות</td><td class="cost">~₪21,100</td><td>40×200 + 22×350 + 9×600. רווח גולמי משולב ~76% מול ₪87,480 הכנסה; ~₪66,380 רווח גולמי בחודש.</td></tr>
         </tbody>
       </table>
@@ -473,6 +517,17 @@
     <div class="math-banner reveal d2" style="background:linear-gradient(135deg,rgba(79,214,160,.10),rgba(227,191,99,.06)); border-color:var(--green-deep)">
       <div class="mh" style="color:var(--green)">תקציב שיווק שנה 1: ~₪48,000 מזומן → 71 לקוחות נטו</div>
       <p>במונחי מזומן GTM הוא קטן ביחס להכנסה (~₪48K מול קצב יציאה של ~₪1.05M). <b class="gold">העלות האמיתית הגדולה היא זמן המייסד</b>, לא תקציב המודעות. ככל שהפניות פה-לאוזן צוברות תאוצה, ה-CAC המשוקלל יורד; ככל שמסתמכים יותר על מודעות ממומנות, הוא עולה. לכן בונים את מנוע ההפניות והתוכן מוקדם (M3–M4) כדי לא להישען על ערוץ ה-CAC היקר ביותר.</p>
+
+      <h3 style="font-family:'Frank Ruhl Libre',serif; font-size:26px; font-weight:800; margin:48px 0 8px">איפה מוצאים את בעלי העסקים?</h3>
+      <p style="color:var(--muted); margin-bottom:22px; max-width:760px">לא מחפשים &quot;עסקים קטנים&quot; באוויר — הולכים למקומות שבהם הם כבר מרוכזים. שישה ערוצים, מהזול לאמין ביותר:</p>
+      <div class="pillars" style="grid-template-columns:repeat(3,1fr)">
+        <div class="pillar reveal d1"><div class="ic">🧮</div><h3>שותפי רואי חשבון</h3><p>כל רו&quot;ח / מנהל חשבונות משרת עשרות עסקים. הופכים אותם לשותפי הפצה מול עמלה — ערוץ ה-CAC הזול והאמין ביותר.</p></div>
+        <div class="pillar reveal d2"><div class="ic">💬</div><h3>קבוצות וואטסאפ ופייסבוק</h3><p>קבוצות בעלי עסקים, פרילנסרים וענפים (מסעדנים, קליניקות, איקומרס). מצטרפים, נותנים ערך, ואז מציעים.</p></div>
+        <div class="pillar reveal d3"><div class="ic">🔗</div><h3>לינקדאין ממוקד</h3><p>חיפוש לפי תפקיד (&quot;בעלים&quot;, &quot;מנכ&quot;ל&quot;) וגודל עסק (1–30) באזור. פנייה אישית עם כאב ספציפי.</p></div>
+        <div class="pillar reveal d1"><div class="ic">📍</div><h3>עסקים מקומיים ב-Google Maps</h3><p>רשימות עסקים לפי ענף ואזור עם טלפון/אתר — מושלם לעסקי שירות מקומיים (מוסכים, קליניקות, נותני שירות).</p></div>
+        <div class="pillar reveal d2"><div class="ic">🤝</div><h3>כנסים, לשכות מסחר ואיגודים</h3><p>מפגשי ענף, לשכת המסחר ועמותות מקצועיות — ריכוז גבוה של בעלי עסקים שכבר מחפשים פתרונות.</p></div>
+        <div class="pillar reveal d3"><div class="ic">⭐</div><h3>הפניות מלקוחות קיימים</h3><p>אחרי 2–3 לקוחות מרוצים, הם המקור הכי חזק. מבקשים הפניה אקטיבית ומתגמלים עליה.</p></div>
+      </div>
     </div>
   </div>
 </section>
@@ -548,7 +603,7 @@
     {m:"M4",c:"10",mrr:"~₪12,320",v:12320,f:"הפעלת מנוע תוכן והפניות; נעילת תקרות שימוש ל-Starter כדי לשמור על רווח הסנדבוקס המשותף"},
     {m:"M5",c:"15",mrr:"~₪18,480",v:18480,f:"הוספת הגשת מע\"מ ורדיפת חשבוניות כתהליכי Pro ארוזים כדי להעלות סגירת Pro"},
     {m:"M6",c:"21",mrr:"~₪25,872",v:25872,f:"יציאת רבעון 2 בקצב ~₪26K; סימני נטישה ראשונים — מתקצבים תוספות ברוטו של ~1.5x נטו"},
-    {m:"M7",c:"28",mrr:"~₪34,496",v:34496,f:"הרחבת רכישה דרך וואטסאפ/הפניות; שקילת אירוח עצמי של Hermes כשהטוקנים מתקרבים ל-50-100M בחודש"},
+    {m:"M7",c:"28",mrr:"~₪34,496",v:34496,f:"הרחבת רכישה דרך וואטסאפ/הפניות; אופטימיזציית מודלים ב-OpenRouter (ניתוב לזול, prompt caching, batch) לחיתוך עלות הטוקנים"},
     {m:"M8",c:"36",mrr:"~₪44,352",v:44352,f:"אוטומציה של צעדים בסיכון נמוך (אישורים אוטומטיים שנצברו) כדי לשמור על עומס תמיכה שטוח"},
     {m:"M9",c:"44",mrr:"~₪54,208",v:54208,f:"יציאת רבעון 3 בקצב ~₪54K; הכפלת מאמץ על חבילת Growth (יחס רווח-למאמץ הטוב ביותר)"},
     {m:"M10",c:"53",mrr:"~₪65,296",v:65296,f:"הידוק נטישה (דחיפה לתשלום שנתי, סקירות ערך רבעוניות); הגנה מול נטישת SMB של 4-6%"},
@@ -563,7 +618,7 @@
     {r:"סוכני מחשב-בפעולה עדיין עלולים לטעות", m:"בממשקים לא מוכרים פעולות שגויות הן סיכון אמיתי. ממותן בשערי פיקוח אנושי מדורגים, תיחום משימות הדוק ויומני ביקורת — אבל אמון נבנה בהדרגה."},
     {r:"טיפול בפרטי גישה לבנקים ולממשל", m:"אחריות אבטחה כבדה. ממותן בכספות אישורים נפרדות לכל דייר ובידוד מלא — אבל פריצה תהיה הרסנית למוניטין של מפעיל יחיד, ולכן זה גבול עליון של זהירות."},
     {r:"נפח טוקנים ללקוח — שונות העלות הגדולה ביותר", m:"לקוח כבד במחיר קבוע יכול למחוק את הרווח. תקרות שימוש וניטור עלות לכל לקוח כבר מ-M1 הם תנאי שאינו ניתן למשא ומתן."},
-    {r:"אירוח עצמי מוקדם מדי וחוקיות פורטלים", m:"אירוח עצמי של Hermes משתלם רק מ-~50-100M טוקנים בחודש; מתחת לזה הוא מוסיף עלות GPU ותקרת יכולת. בנוסף, חלק מהפורטלים הישראליים עשויים לאסור אוטומציה — חובה לבדוק חוקיות לכל אינטגרציה, במיוחד בנקאות וממשל. גם בחירת OpenClaw עדיין לא מאומתת, אך הארכיטקטורה בת 5 השכבות מתאימה לכל מסגרת מחשב-בפעולה פתוחה."}
+    {r:"תלות בספק (OpenRouter) וחוקיות פורטלים", m:"כל קריאות המודל עוברות דרך OpenRouter — נוח וזול, אבל יוצר תלות בספק ובמחירי השוק. מיתון: OpenRouter מפשט מעבר בין מודלים/ספקים, ולנפחים גדולים מאוד שוקלים אירוח עצמי. בנוסף, חלק מהפורטלים הישראליים עשויים לאסור אוטומציה — חובה לבדוק חוקיות לכל אינטגרציה, במיוחד בנקאות וממשל. גם בחירת OpenClaw עדיין לא מאומתת, אך הארכיטקטורה מתאימה לכל מסגרת מחשב-בפעולה פתוחה."}
   ];
   const faq = [
     {q:"האם זה באמת מבטיח לי מיליון שקל בשנה?", a:"לא. זו תוכנית עסקית, לא הבטחה. המספרים מראים שעם 71 לקוחות בתמהיל המומלץ מגיעים לקצב שנתי של ~1.05 מיליון ₪. אבל בשנה הראשונה, לאורך רמפה של 12 חודשים, מכירים בפועל רק ב-~430-500K ₪ — המיליון המוכר האמיתי הוא מספר של שנה 2. נדרשים השקעה, מאמץ וביצוע, ואין הבטחת רווח."},
